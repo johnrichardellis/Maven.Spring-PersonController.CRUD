@@ -9,12 +9,12 @@ import javax.persistence.Id;
 public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    private Long id;
     private String firstName;
     private String lastName;
 
     public Person(Long id, String firstName, String lastName) {
-        Id = id;
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
     }
@@ -23,11 +23,11 @@ public class Person {
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -49,7 +49,7 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "Id=" + Id +
+                "ID=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';
