@@ -12,6 +12,17 @@ public class PersonService {
     @Autowired
     private PersonRepository repository;
 
+    public PersonService(PersonRepository repository) {
+        this.repository = repository;
+    }
+
+    public PersonService() {
+    }
+
+    public Iterable<Person> index() {
+        return repository.findAll();
+    }
+
     public ResponseEntity<Person> createPerson(Person personRequestedToPersist) {
         Person personInDatabase = repository.save(personRequestedToPersist);
         ResponseEntity<Person> responseEntity = new ResponseEntity<>(personInDatabase, HttpStatus.CREATED);
